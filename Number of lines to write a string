@@ -1,0 +1,20 @@
+class Solution {
+    public int[] numberOfLines(int[] widths, String s) {
+        int lines=1;
+        int currentwidth=0;
+        for(char c:s.toCharArray())
+        {
+            int w=widths[c-'a'];
+            if(currentwidth+w>100)
+            {
+                lines++;
+                currentwidth=w;
+            }
+            else
+            {
+               currentwidth+=w;
+            }
+        }
+        return new int[]{lines,currentwidth};
+    }
+}
